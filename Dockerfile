@@ -27,3 +27,4 @@ RUN godot --no-window --export-debug Android /tmp/outpu.apk 2> /dev/null || echo
 RUN [ -f "${GODOT_EDITOR_CFG_FILE}" ] && echo "generate godot editor config file success" || (echo "generate godot editor config file failed" ;exit 1)
 # set android-sdk-path of godot editor config
 RUN sed -i "s/export\/android\/android_sdk_path.*/export\/android\/android_sdk_path = \"\/opt\/android-sdk-linux\"/g" "${GODOT_EDITOR_CFG_FILE}" && sed -i "s/export\/android\/debug_keystore = .*/export\/android\/debug_keystore = \"\/exports\/android\/debug.keystore\"/g" "${GODOT_EDITOR_CFG_FILE}"
+WORKDIR /project
